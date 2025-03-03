@@ -1,0 +1,56 @@
+<title>س</title>
+<script type="text/javascript">
+
+jwplayer("vplayer").setup({
+    sources: [{
+        file: "رابط_البث_المباشر",
+        label: "Live Stream"
+    }],
+    image: "https://web184.faselhd.cafe/wp-content/uploads/2025/01/bf5ee30f68990a3018dc07e0bed2f605.webp",
+    width: "100%", 
+    height: "100%",
+    stretching: "exactfit",
+    preload: 'auto',
+    androidhls: "true",
+    hlshtml: "true",
+    primary: "html5",
+    startparam: "start",
+    tracks: [],
+    sharing: {
+        code: "%3CIFRAME SRC%3D%22https%3A%2F%2Fv.aflam.news%2Fembed-73tpzp0ge3nl.html%22 FRAMEBORDER%3D0 MARGINWIDTH%3D0 MARGINHEIGHT%3D0 SCROLLING%3DNO WIDTH%3D640 HEIGHT%3D360 allowfullscreen%3Dtrue%3E%3C%2FIFRAME%3E"
+    }
+});
+var vvplay, vvad, x2ok = 0;
+var vastdone1 = 0, vastdone2 = 0;
+var player = jwplayer();
+player.on('time', function(x) { 
+    if (5 > 0 && x.position >= 5 && vvad != 1) {
+        vvad = 1;
+        $('div.video_ad_fadein').fadeIn('slow');
+    }
+    if (x2ok == 0 && x.position >= 5260 && x.position <= (5260 + 2)) {
+        x2ok = x.position;
+    }
+});
+player.on('play', function(x) { doPlay(x); });
+player.on('complete', function() { $('div.video_ad').show(); });
+
+function doPlay(x) {
+    $('div.video_ad').hide();
+    if (vvplay) return;
+    vvplay = 1;
+    adb = 0;
+    if (window.cRAds === undefined) {
+        adb = 1;
+    }
+    $.get('https://v.aflam.news/dl?op=view&file_code=73tpzp0ge3nl&hash=800710-0-0-1740793150-85be24b0460aa7d0d3c2b41d37237d3d&embed=&adb=' + adb, function(data) {
+        $('#fviews').html(data);
+    });
+}
+player.on('ready', function() {
+    //var mybtn=$("<div style='padding-left: 5px; margin-right: 5px; margin-top: 10px; background-image: url(/images/ico.png);background-repeat: no-repeat;' class='jw-icon jw-icon-inline j[...]
+    //mybtn.click(showCCform);
+    //$(".jw-controlbar-right-group").append(mybtn);
+});
+
+                                                                                                                                                           </script>
